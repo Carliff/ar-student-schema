@@ -1,5 +1,6 @@
 require 'rake'
 require 'rspec/core/rake_task'
+require 'faker'
 require_relative 'db/config'
 require_relative 'lib/students_importer'
 
@@ -26,6 +27,15 @@ end
 desc "populate the test database with sample data"
 task "db:populate" do
   StudentsImporter.import
+end
+
+desc "populate the teachers database with sample data"
+task "db:populate" do
+  Teacher.populate 20 do |teacher|
+  	teacher.name = Faker::Name.name
+  	teacher.email = Faker::Internet.email
+  	teacher.phone = Faker::Number.number(10)
+  end
 end
 
 desc 'Retrieves the current schema version number'
