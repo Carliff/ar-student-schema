@@ -24,3 +24,15 @@ class Student < ActiveRecord::Base
 		end
 	end
 end
+
+# Testing for student data
+ # student = Student.find(10)
+ # p student.name
+ # p student.age
+ # p student.email
+
+# student2 = Student.find_by(first_name: 'Andrew')
+# p student.name
+# p student.phone
+
+# p Student.all
